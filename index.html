@@ -221,6 +221,22 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
 .footer-col a { display: block; font-size: 13.5px; color: rgba(255,255,255,0.65); text-decoration: none; margin-bottom: 10px; cursor: pointer; }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; text-align: center; font-size: 12.5px; color: rgba(255,255,255,0.3); max-width: 980px; margin: 0 auto; }
 
+/* Diário interativo — affordance */
+.diary-toggle { border: 1px solid transparent; }
+.diary-toggle:hover { box-shadow: 0 8px 24px rgba(15,42,68,0.08); }
+.diary-toggle.active { border-color: #2563EB; background: #fff; box-shadow: 0 10px 30px rgba(37,99,235,0.1); }
+.diary-toggle.active .step-icon { background: linear-gradient(135deg, #2563EB, #3B82F6); }
+.diary-toggle-hint { font-size: 11px; font-weight: 600; color: #2563EB; opacity: 0; margin-left: 8px; transition: opacity .2s; }
+.diary-toggle.active .diary-toggle-hint { opacity: 1; }
+
+/* FAQ accordion */
+.faq-item { cursor: pointer; }
+.faq-q { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.faq-arrow { font-size: 13px; color: #94A3B8; transition: transform .2s; flex-shrink: 0; }
+.faq-item.open .faq-arrow { transform: rotate(180deg); color: #2563EB; }
+.faq-a { display: none; }
+.faq-item.open .faq-a { display: block; margin-top: 4px; }
+
 @media (max-width: 900px) {
   .screens-grid, .niveis-grid { grid-template-columns: 1fr; }
   .tech-grid { grid-template-columns: 1fr 1fr; }
@@ -243,17 +259,17 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
     <a class="nav-link" href="#como-funciona">Como funciona</a>
     <a class="nav-link" href="#saga">Sagas</a>
     <a class="nav-link" href="#planos">Planos</a>
-    <button class="nav-cta" onclick="openModal()">Assinar</button>
+    <button class="nav-cta" onclick="openModal()">Acesso antecipado</button>
   </div>
 </nav>
 
 <!-- HERO com mockup -->
 <section class="hero">
-  <div class="hero-badge"><span class="hero-badge-dot"></span> Simulação Clínica com IA</div>
-  <h1>Cada caso é único.<br>Você decide — e <span class="accent">aprende</span> com cada escolha.</h1>
-  <p>A inteligência artificial gera pacientes com histórias e apresentações clínicas variadas. A cada turno, você escolhe entre alternativas de conduta — e enfrenta as consequências reais dessa decisão.</p>
+  <div class="hero-badge"><span class="hero-badge-dot"></span> Para estudantes de medicina</div>
+  <h1>O jeito mais realista de treinar <span class="accent">raciocínio clínico</span> desde a faculdade.</h1>
+  <p>Atenda pacientes, tome decisões e viva as consequências — numa jornada narrativa que ensina a pensar como médico, não a decorar doenças.</p>
   <div class="hero-btns">
-    <button class="btn-primary" onclick="openModal()">Assinar agora</button>
+    <button class="btn-primary" onclick="openModal()">Quero experimentar</button>
     <button class="btn-secondary" onclick="document.getElementById('como-funciona').scrollIntoView()">Ver como funciona ↓</button>
   </div>
 
@@ -267,7 +283,7 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
       <div class="mockup-body">
         <div class="mockup-header">
           <div class="mockup-logo">Med<span>Saga</span></div>
-          <div class="mockup-user"><div class="mockup-av">D</div>Diogo Carraro</div>
+          <div class="mockup-user"><div class="mockup-av">L</div>Lucas Andrade</div>
         </div>
         <div class="mockup-hero">
           <div class="mockup-saga-badge">🌊 Saga das Águas</div>
@@ -288,15 +304,15 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
   </div>
 </section>
 
-<!-- SHOWCASE - telas reais lado a lado -->
+<!-- SHOWCASE - tela do caso -->
 <section class="showcase" id="como-funciona">
   <div class="showcase-inner">
     <div class="showcase-header">
       <div class="section-eyebrow">O produto</div>
       <h2>Veja por dentro.</h2>
-      <p class="showcase-sub">Duas telas reais do MedSaga: um caso em andamento e o seu Diário clínico pessoal.</p>
+      <p class="showcase-sub">Um caso real do MedSaga — decisão clínica, consequência imediata.</p>
     </div>
-    <div class="screens-grid">
+    <div class="screens-grid" style="grid-template-columns: 1fr; max-width: 620px; margin: 0 auto;">
 
       <!-- Tela do caso -->
       <div class="screen-card">
@@ -328,6 +344,109 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- MECÂNICA -->
+<section class="mecanica-section">
+  <div class="mecanica-inner">
+    <div class="mecanica-header">
+      <div class="section-eyebrow" style="text-align:center">Mecânica</div>
+      <h2>Como você aprende aqui</h2>
+      <p>Não é um quiz. É atendimento com decisão e consequência reais.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num-bg">1</div>
+        <div class="step-icon">🩺</div>
+        <div class="step-content">
+          <h3>Conheça o paciente</h3>
+          <p>Queixa, histórico e contexto chegam pelo narrador. Cada detalhe pode importar mais tarde.</p>
+          <span class="step-note">Um paciente novo a cada sessão</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-bg">2</div>
+        <div class="step-icon">🔍</div>
+        <div class="step-content">
+          <h3>Escolha sua conduta</h3>
+          <p>A cada turno, alternativas reais de conduta. Sua escolha muda o rumo do caso.</p>
+          <span class="step-note">Decisões erradas têm peso real</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-bg">3</div>
+        <div class="step-icon">💡</div>
+        <div class="step-content">
+          <h3>Formule sua hipótese</h3>
+          <p>O que importa é o raciocínio por trás da escolha — não só acertar o nome da doença.</p>
+          <span class="step-note">Raciocínio conta tanto quanto a resposta</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-bg">4</div>
+        <div class="step-icon">💊</div>
+        <div class="step-content">
+          <h3>Decida o tratamento</h3>
+          <p>Trate, interne ou encaminhe. O paciente responde dentro da narrativa.</p>
+          <span class="step-note">Condutas erradas geram complicações</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-bg">5</div>
+        <div class="step-icon">📖</div>
+        <div class="step-content">
+          <h3>Aprenda com o caso</h3>
+          <p>Análise clínica detalhada após cada decisão, com base em diretrizes reais.</p>
+          <span class="step-note">Feedback com referências reais</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIÁRIO — clímax emocional, interativo -->
+<section class="showcase" style="background:#F7F9FC">
+  <div class="showcase-inner">
+    <div class="showcase-header">
+      <div class="section-eyebrow">O maior diferencial</div>
+      <h2>Cada caso vira conhecimento permanente.</h2>
+      <p class="showcase-sub">Um chatbot esquece. O MedSaga registra sua evolução — caso a caso, erro a erro — até virar a história de como você se tornou o profissional que é.</p>
+    </div>
+    <div class="screens-grid" style="align-items:center">
+
+      <div>
+        <div class="step diary-toggle active" data-tab="historico" onclick="setDiaryTab('historico')" style="margin-bottom:16px;cursor:pointer;transition:box-shadow .2s,border-color .2s">
+          <div class="step-icon">📋</div>
+          <div class="step-content">
+            <h3>Histórico <span class="diary-toggle-hint">◀ veja ao lado</span></h3>
+            <p>Nenhum caso se perde. Toda decisão que você tomou fica registrada — o que acertou, o que errou, e por quê.</p>
+          </div>
+        </div>
+        <div class="step diary-toggle" data-tab="conhecimentos" onclick="setDiaryTab('conhecimentos')" style="margin-bottom:16px;cursor:pointer;transition:box-shadow .2s,border-color .2s">
+          <div class="step-icon">📚</div>
+          <div class="step-content">
+            <h3>Conhecimentos <span class="diary-toggle-hint">◀ veja ao lado</span></h3>
+            <p>Cada acerto vira referência guardada. Um resumo pessoal de tudo que você já estudou na prática.</p>
+          </div>
+        </div>
+        <div class="step diary-toggle" data-tab="consolidar" onclick="setDiaryTab('consolidar')" style="margin-bottom:16px;cursor:pointer;transition:box-shadow .2s,border-color .2s">
+          <div class="step-icon">🔄</div>
+          <div class="step-content">
+            <h3>Consolidar <span class="diary-toggle-hint">◀ veja ao lado</span></h3>
+            <p>Os pontos que você errou viram exatamente o que você mais precisa estudar. A plataforma te mostra onde focar.</p>
+          </div>
+        </div>
+        <div class="step diary-toggle" data-tab="jornada" onclick="setDiaryTab('jornada')" style="cursor:pointer;transition:box-shadow .2s,border-color .2s">
+          <div class="step-icon">📖</div>
+          <div class="step-content">
+            <h3>Jornada <span class="diary-toggle-hint">◀ veja ao lado</span></h3>
+            <p>Sua trajetória vira narrativa própria — um registro de como você evoluiu, caso após caso.</p>
+          </div>
+        </div>
+      </div>
+
       <!-- Tela do diário -->
       <div class="screen-card">
         <div class="screen-card-header">
@@ -340,33 +459,95 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
             <p>Seu compêndio clínico pessoal, construído caso a caso.</p>
           </div>
           <div class="diary-mock-tabs">
-            <span class="diary-mock-tab active">📋 Histórico</span>
-            <span class="diary-mock-tab">📚 Conhecimentos</span>
-            <span class="diary-mock-tab">🔄 Consolidar</span>
-            <span class="diary-mock-tab">📖 Jornada</span>
+            <span class="diary-mock-tab active" data-tab="historico" onclick="setDiaryTab('historico')" style="cursor:pointer">📋 Histórico</span>
+            <span class="diary-mock-tab" data-tab="conhecimentos" onclick="setDiaryTab('conhecimentos')" style="cursor:pointer">📚 Conhecimentos</span>
+            <span class="diary-mock-tab" data-tab="consolidar" onclick="setDiaryTab('consolidar')" style="cursor:pointer">🔄 Consolidar</span>
+            <span class="diary-mock-tab" data-tab="jornada" onclick="setDiaryTab('jornada')" style="cursor:pointer">📖 Jornada</span>
           </div>
-          <div class="diary-mock-body">
-            <div class="diary-mock-card">
-              <div class="diary-mock-stripe" style="background:#DC2626"></div>
-              <div class="diary-mock-card-body">
-                <div class="diary-mock-badges">
-                  <span class="diary-mock-badge" style="background:rgba(220,38,38,0.1);color:#DC2626">NEGATIVO</span>
-                  <span class="diary-mock-badge" style="background:rgba(37,99,235,0.1);color:#2563EB">🌊 Saga</span>
+          <div class="diary-mock-body" id="diaryMockBody">
+
+            <!-- HISTÓRICO -->
+            <div class="diary-mock-panel" data-panel="historico">
+              <div class="diary-mock-card">
+                <div class="diary-mock-stripe" style="background:#DC2626"></div>
+                <div class="diary-mock-card-body">
+                  <div class="diary-mock-badges">
+                    <span class="diary-mock-badge" style="background:rgba(220,38,38,0.1);color:#DC2626">NEGATIVO</span>
+                    <span class="diary-mock-badge" style="background:rgba(37,99,235,0.1);color:#2563EB">🌊 Saga</span>
+                  </div>
+                  <div class="diary-mock-title">Choque Hemorrágico Classe IV secundário a Gravidez Ectópica Rota</div>
+                  <div class="diary-mock-meta">Emergência · 11 de julho</div>
                 </div>
-                <div class="diary-mock-title">Choque Hemorrágico Classe IV secundário a Gravidez Ectópica Rota</div>
-                <div class="diary-mock-meta">Emergência · 11 de julho</div>
+              </div>
+              <div class="diary-mock-card">
+                <div class="diary-mock-stripe" style="background:#16A34A"></div>
+                <div class="diary-mock-card-body">
+                  <div class="diary-mock-badges">
+                    <span class="diary-mock-badge" style="background:rgba(22,163,74,0.1);color:#16A34A">POSITIVO</span>
+                  </div>
+                  <div class="diary-mock-title">Anemia Perniciosa (Deficiência de B12 por Gastrite Atrófica)</div>
+                  <div class="diary-mock-meta">Hematologia · 10 de julho</div>
+                </div>
               </div>
             </div>
-            <div class="diary-mock-card">
-              <div class="diary-mock-stripe" style="background:#16A34A"></div>
-              <div class="diary-mock-card-body">
-                <div class="diary-mock-badges">
-                  <span class="diary-mock-badge" style="background:rgba(22,163,74,0.1);color:#16A34A">POSITIVO</span>
+
+            <!-- CONHECIMENTOS -->
+            <div class="diary-mock-panel" data-panel="conhecimentos" style="display:none">
+              <div class="diary-mock-card">
+                <div class="diary-mock-card-body">
+                  <div class="diary-mock-badges">
+                    <span class="diary-mock-badge" style="background:rgba(37,99,235,0.1);color:#2563EB">CARDIOLOGIA</span>
+                  </div>
+                  <div class="diary-mock-title">Interpretação de ECG em IAMCSST</div>
+                  <div class="diary-mock-meta">📚 Harrison's, 21ª ed. 2022</div>
                 </div>
-                <div class="diary-mock-title">Anemia Perniciosa (Deficiência de B12 por Gastrite Atrófica)</div>
-                <div class="diary-mock-meta">Hematologia · 10 de julho</div>
+              </div>
+              <div class="diary-mock-card">
+                <div class="diary-mock-card-body">
+                  <div class="diary-mock-badges">
+                    <span class="diary-mock-badge" style="background:rgba(37,99,235,0.1);color:#2563EB">GERIATRIA</span>
+                  </div>
+                  <div class="diary-mock-title">Delirium — Diagnóstico e Etiologia</div>
+                  <div class="diary-mock-meta">📚 UpToDate 2023</div>
+                </div>
               </div>
             </div>
+
+            <!-- CONSOLIDAR -->
+            <div class="diary-mock-panel" data-panel="consolidar" style="display:none">
+              <div class="diary-mock-card">
+                <div class="diary-mock-card-body">
+                  <div class="diary-mock-badges">
+                    <span class="diary-mock-badge" style="background:rgba(217,119,6,0.1);color:#D97706">REVISAR</span>
+                  </div>
+                  <div class="diary-mock-title">Tríade de Hakim-Adams em Hidrocefalia de Pressão Normal</div>
+                  <div class="diary-mock-meta">📚 Harrison's, 21ª ed. 2022</div>
+                </div>
+              </div>
+              <div class="diary-mock-card">
+                <div class="diary-mock-card-body">
+                  <div class="diary-mock-badges">
+                    <span class="diary-mock-badge" style="background:rgba(217,119,6,0.1);color:#D97706">REVISAR</span>
+                  </div>
+                  <div class="diary-mock-title">Farmacologia clínica da Colchicina em Gota Aguda</div>
+                  <div class="diary-mock-meta">📚 NICE Guideline NG219, 2022</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- JORNADA -->
+            <div class="diary-mock-panel" data-panel="jornada" style="display:none">
+              <div class="diary-mock-card">
+                <div class="diary-mock-card-body">
+                  <div class="diary-mock-badges">
+                    <span class="diary-mock-badge" style="background:rgba(15,42,68,0.08);color:#0F2A44">CAPÍTULO 7</span>
+                  </div>
+                  <div class="diary-mock-title">O peso das decisões</div>
+                  <div class="diary-mock-meta" style="font-style:italic">"Hoje o Dr. Marcondes me observou de perto. Cada caso ensina algo diferente sobre quem quero ser como médico."</div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -374,59 +555,29 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
     </div>
   </div>
 </section>
+  </div>
+</section>
 
-<!-- MECÂNICA -->
-<section class="mecanica-section">
-  <div class="mecanica-inner">
-    <div class="mecanica-header">
-      <div class="section-eyebrow" style="text-align:center">Mecânica</div>
-      <h2>A mecânica do jogo</h2>
-      <p>Não é um quiz. É uma simulação de atendimento com decisões e consequências reais.</p>
-    </div>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num-bg">1</div>
-        <div class="step-icon">🩺</div>
-        <div class="step-content">
-          <h3>Anamnese — Conheça o paciente</h3>
-          <p>Leia a queixa principal, histórico clínico e contexto do paciente apresentados pelo narrador. Cada detalhe pode ser relevante para as decisões que vêm a seguir.</p>
-          <span class="step-note">A IA gera pacientes e contextos únicos a cada caso</span>
-        </div>
+<!-- ESTUDE O QUE VOCÊ QUISER -->
+<section class="niveis-section" style="background:#fff">
+  <div class="niveis-inner" style="max-width:700px">
+    <div class="section-eyebrow">Estudo direcionado</div>
+    <h2>Estude o que você quiser.</h2>
+    <p class="sub" style="margin-bottom:32px">Tem prova semana que vem? Escolha o tema — o MedSaga gera o caso.</p>
+    <div class="hero-mockup" style="text-align:left;box-shadow:0 20px 50px rgba(15,42,68,0.1);border:1px solid #E3EAF3">
+      <div class="mockup-topbar">
+        <div class="mockup-dot" style="background:#FF5F57"></div>
+        <div class="mockup-dot" style="background:#FEBC2E"></div>
+        <div class="mockup-dot" style="background:#28C840"></div>
       </div>
-      <div class="step">
-        <div class="step-num-bg">2</div>
-        <div class="step-icon">🔍</div>
-        <div class="step-content">
-          <h3>Investigação — Escolha sua conduta</h3>
-          <p>A cada turno, você recebe alternativas de conduta — solicitar um exame, aprofundar a anamnese, agir imediatamente. Cada escolha direciona o rumo do caso.</p>
-          <span class="step-note">Decisões inadequadas têm peso real na pontuação</span>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num-bg">3</div>
-        <div class="step-icon">💡</div>
-        <div class="step-content">
-          <h3>Diagnóstico — Formule sua hipótese</h3>
-          <p>Entre as alternativas apresentadas, você escolhe sua hipótese diagnóstica. A IA avalia sua linha de raciocínio, não apenas se você acertou o nome da doença.</p>
-          <span class="step-note">Raciocínio clínico conta tanto quanto a resposta</span>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num-bg">4</div>
-        <div class="step-icon">💊</div>
-        <div class="step-content">
-          <h3>Conduta — Decida o tratamento</h3>
-          <p>Escolha entre as condutas possíveis — tratamento, internação, encaminhamento ou alta. O paciente responde à sua decisão dentro da narrativa.</p>
-          <span class="step-note">Condutas inadequadas geram complicações reais</span>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num-bg">5</div>
-        <div class="step-icon">📖</div>
-        <div class="step-content">
-          <h3>Feedback — Aprenda com o caso</h3>
-          <p>Ao final de cada decisão, receba análise clínica detalhada com embasamento em diretrizes e literatura médica atual.</p>
-          <span class="step-note">Feedback baseado em referências reais</span>
+      <div class="mockup-body" style="padding-bottom:20px">
+        <div class="nivel-tag" style="color:#2563EB;margin-bottom:10px">Tema específico (opcional)</div>
+        <div style="background:#fff;border:1.5px solid #2563EB;border-radius:10px;padding:12px 16px;font-size:14px;color:#0F2A44;margin-bottom:14px">Insuficiência renal aguda</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span class="mockup-saga-badge" style="background:rgba(37,99,235,0.08);color:#2563EB">Dor torácica</span>
+          <span class="mockup-saga-badge" style="background:rgba(37,99,235,0.08);color:#2563EB">Diabetes descompensado</span>
+          <span class="mockup-saga-badge" style="background:rgba(37,99,235,0.08);color:#2563EB">Asma</span>
+          <span class="mockup-saga-badge" style="background:rgba(37,99,235,0.08);color:#2563EB">Pneumonia</span>
         </div>
       </div>
     </div>
@@ -477,32 +628,41 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
   </div>
 </section>
 
-<!-- TECH -->
+<!-- PROVA SOCIAL -->
 <section class="tech-section">
+  <div class="tech-inner" style="max-width:640px">
+    <div class="section-eyebrow">Validado</div>
+    <h2>Testado e aprovado por quem entende do assunto.</h2>
+    <p class="sub" style="margin-bottom:0">Estudantes e professores de medicina de instituições como USP, UNIFESP e PUC-PR já experimentaram o MedSaga — e aprovaram a seriedade acadêmica por trás da narrativa.</p>
+  </div>
+</section>
+
+<!-- TECH -->
+<section class="tech-section" style="background:#fff;padding-top:0">
   <div class="tech-inner">
-    <div class="section-eyebrow">Tecnologia</div>
-    <h2>A IA por trás dos casos</h2>
-    <p class="sub">Não são casos pré-programados. São gerados em tempo real, a cada sessão.</p>
+    <div class="section-eyebrow">Por trás da cena</div>
+    <h2>Tecnologia a serviço do aprendizado</h2>
+    <p class="sub">A IA gera casos únicos e calibrados — mas o foco é sempre o seu raciocínio, nunca a tecnologia em si.</p>
     <div class="tech-grid">
       <div class="tech-card">
         <div class="tech-icon">🎲</div>
         <h3>Infinita variedade</h3>
-        <p>Cada sessão gera um caso diferente. Nunca o mesmo paciente duas vezes.</p>
+        <p>Nunca o mesmo paciente duas vezes.</p>
       </div>
       <div class="tech-card">
         <div class="tech-icon">📈</div>
         <h3>Calibrado para você</h3>
-        <p>Você escolhe o nível acadêmico, e a IA ajusta a complexidade de acordo.</p>
+        <p>Complexidade ajustada ao seu nível.</p>
       </div>
       <div class="tech-card">
         <div class="tech-icon">📚</div>
         <h3>Baseado em evidências</h3>
-        <p>Casos e feedback calibrados com diretrizes clínicas e literatura atual.</p>
+        <p>Diretrizes clínicas e literatura atual.</p>
       </div>
       <div class="tech-card">
         <div class="tech-icon">🧠</div>
         <h3>Feedback inteligente</h3>
-        <p>A IA analisa seu raciocínio clínico, não apenas a resposta final.</p>
+        <p>Analisa raciocínio, não só resposta.</p>
       </div>
     </div>
   </div>
@@ -513,15 +673,15 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
   <div class="saga-inner">
     <div class="saga-header">
       <div class="saga-eyebrow">Eventos Especiais</div>
-      <h2>As Sagas chegaram.</h2>
-      <p>Eventos temáticos que conectam seus casos clínicos a crises do mundo do jogo.</p>
+      <h2>O mundo do MedSaga está sempre em movimento.</h2>
+      <p>Eventos temáticos que conectam seus casos clínicos a crises reais do universo do jogo.</p>
     </div>
     <div class="saga-card">
       <div class="saga-badge"><span class="saga-pulse"></span> Ativa agora</div>
       <div class="saga-title">Saga das Águas</div>
       <div class="saga-meta">Multissistêmica · Todos os níveis · Ativa até 15 de agosto de 2026</div>
       <div class="saga-desc">A região fictícia de Vale do Sincorá enfrenta a maior enchente de sua história. Hospitais sobrecarregados, UBS em colapso, população desabrigada e sem acesso a medicamentos. Os casos clínicos durante esta Saga refletem esse cenário — de infecções por veiculação hídrica a pacientes crônicos sem acesso a tratamento, em qualquer especialidade.</div>
-      <button class="btn-primary" onclick="openModal()">Entrar na Saga</button>
+      <button class="btn-primary" onclick="openModal()">Quero conhecer a Saga</button>
     </div>
   </div>
 </section>
@@ -547,25 +707,25 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
         <div class="preco-item"><span class="preco-check">✓</span> Diário de evolução pessoal</div>
         <div class="preco-item"><span class="preco-check">✓</span> Compartilhamento de casos com colegas</div>
       </div>
-      <button class="preco-btn" onclick="openModal()">Quero ser avisado no lançamento</button>
+      <button class="preco-btn" onclick="openModal()">Quero acesso antecipado</button>
       <div class="preco-note">Sem fidelidade. Cancele quando quiser.</div>
     </div>
 
     <table class="comp-table">
       <tr><th></th><th>MedSaga</th><th>Banco de questões</th></tr>
-      <tr><td>Casos gerados por IA, nunca repetidos</td><td class="comp-check">✓</td><td class="comp-x">✕</td></tr>
-      <tr><td>Feedback sobre raciocínio clínico</td><td class="comp-check">✓</td><td class="comp-x">✕</td></tr>
-      <tr><td>Eventos temáticos (Sagas)</td><td class="comp-check">✓</td><td class="comp-x">✕</td></tr>
-      <tr><td>Diário de evolução pessoal</td><td class="comp-check">✓</td><td class="comp-x">✕</td></tr>
+      <tr><td>Nunca decora — sempre pensa</td><td class="comp-check">✓</td><td class="comp-x">✕</td></tr>
+      <tr><td>Aprende a decidir, não só a marcar a certa</td><td class="comp-check">✓</td><td class="comp-x">✕</td></tr>
+      <tr><td>Vive eventos temáticos (Sagas)</td><td class="comp-check">✓</td><td class="comp-x">✕</td></tr>
+      <tr><td>Registra sua evolução como profissional</td><td class="comp-check">✓</td><td class="comp-x">✕</td></tr>
     </table>
 
     <div class="faq-section">
-      <div class="faq-item">
-        <div class="faq-q">Posso cancelar quando quiser?</div>
+      <div class="faq-item open" onclick="toggleFaq(this)">
+        <div class="faq-q">Posso cancelar quando quiser?<span class="faq-arrow">▾</span></div>
         <div class="faq-a">Sim. Não há fidelidade. Você pode cancelar a assinatura a qualquer momento diretamente na plataforma.</div>
       </div>
-      <div class="faq-item">
-        <div class="faq-q">O conteúdo é atualizado com frequência?</div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">O conteúdo é atualizado com frequência?<span class="faq-arrow">▾</span></div>
         <div class="faq-a">Sim. Novas Sagas e melhorias na plataforma são lançadas periodicamente.</div>
       </div>
     </div>
@@ -602,10 +762,10 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
     <div id="modalForm">
       <div class="modal-icon">🚀</div>
       <h3>Ainda estamos no lançamento</h3>
-      <p>O sistema de assinatura será ativado em breve. Deixe seu e-mail e avisamos assim que estiver disponível — com prioridade de acesso.</p>
+      <p>O MedSaga abre para novos usuários em breve. Deixe seu e-mail e você entra na lista de acesso antecipado.</p>
       <form onsubmit="submitEmail(event)">
         <input type="email" class="modal-input" id="emailInput" placeholder="seu@email.com" required>
-        <button type="submit" class="modal-submit">Quero ser avisado</button>
+        <button type="submit" class="modal-submit">Quero acesso antecipado</button>
       </form>
       <div class="modal-note">Sem spam. Só avisamos quando estiver no ar.</div>
     </div>
@@ -639,6 +799,26 @@ function submitEmail(e) {
 document.getElementById('modalOverlay').addEventListener('click', function(e) {
   if (e.target === this) closeModal();
 });
+
+// Diário interativo — sincroniza texto e mockup
+function setDiaryTab(tab) {
+  document.querySelectorAll('.diary-toggle').forEach(el => {
+    el.classList.toggle('active', el.dataset.tab === tab);
+  });
+  document.querySelectorAll('.diary-mock-tab').forEach(el => {
+    el.classList.toggle('active', el.dataset.tab === tab);
+  });
+  document.querySelectorAll('.diary-mock-panel').forEach(el => {
+    el.style.display = el.dataset.panel === tab ? 'block' : 'none';
+  });
+}
+
+// FAQ em acordeão
+function toggleFaq(item) {
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
 </script>
 
 </body>
