@@ -20,7 +20,7 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
 .hero { background: radial-gradient(ellipse 900px 500px at 50% -10%, rgba(37,99,235,0.35), transparent), linear-gradient(180deg, #0B1830 0%, #0F2A44 100%); padding: 100px 40px 0; text-align: center; position: relative; overflow: hidden; }
 .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 24px; padding: 7px 18px; font-size: 13px; color: rgba(255,255,255,0.75); margin-bottom: 32px; font-weight: 500; }
 .hero-badge-dot { width: 7px; height: 7px; border-radius: 50%; background: #4ADE80; display: inline-block; box-shadow: 0 0 8px #4ADE80; }
-.hero h1 { font-size: 52px; font-weight: 800; color: #fff; line-height: 1.12; margin-bottom: 22px; letter-spacing: -2px; max-width: 720px; margin-left: auto; margin-right: auto; }
+.hero h1 { font-size: 48px; font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: 22px; letter-spacing: -1.5px; max-width: 900px; margin-left: auto; margin-right: auto; }
 .hero h1 .accent { background: linear-gradient(90deg, #60A5FA, #93C5FD); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .hero p { font-size: 18px; color: rgba(255,255,255,0.6); line-height: 1.7; max-width: 560px; margin: 0 auto 40px; }
 .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 64px; }
@@ -242,10 +242,18 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
   .tech-grid { grid-template-columns: 1fr 1fr; }
   .step { flex-direction: column; align-items: flex-start; text-align: left; }
   .step-num-bg { display: none; }
+  /* Diário mobile: mockup aparece primeiro, blocos de texto embaixo */
+  .diary-grid-mobile { display: flex; flex-direction: column; }
+  .diary-grid-mobile .diary-mockup-col { order: 1; }
+  .diary-grid-mobile .diary-text-col { order: 2; margin-top: 16px; }
+  /* No mobile, hint muda de "◀ veja ao lado" para "▼ veja abaixo" */
+  .diary-toggle-hint::before { content: '▼ veja abaixo'; }
+  .diary-toggle-hint { font-size: 0; }
+  .diary-toggle-hint::before { font-size: 11px; }
 }
 @media (max-width: 640px) {
   .nav-link { display: none; }
-  .hero h1 { font-size: 34px; letter-spacing: -1px; }
+  .hero h1 { font-size: 30px; letter-spacing: -1px; }
   .tech-grid { grid-template-columns: 1fr; }
   .footer-top { flex-direction: column; }
 }
@@ -266,11 +274,11 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
 <!-- HERO com mockup -->
 <section class="hero">
   <div class="hero-badge"><span class="hero-badge-dot"></span> Para estudantes de medicina</div>
-  <h1>O jeito mais realista de treinar <span class="accent">raciocínio clínico</span> desde a faculdade.</h1>
-  <p>Atenda pacientes, tome decisões e viva as consequências — numa jornada narrativa que ensina a pensar como médico, não a decorar doenças.</p>
+  <h1>Cada sessão, um paciente.<br><span class="accent">Cada escolha, uma consequência.</span></h1>
+  <p>Atenda pacientes gerados por IA, tome decisões e enfrente as consequências. Uma jornada narrativa que ensina a pensar como médico, não a decorar doenças.</p>
   <div class="hero-btns">
     <button class="btn-primary" onclick="window.open('https://medcase-simulator.lovable.app','_blank')">Quero experimentar</button>
-    <button class="btn-secondary" onclick="document.getElementById('como-funciona').scrollIntoView()">Ver como funciona ↓</button>
+    <button class="btn-secondary" onclick="document.getElementById('como-funciona').scrollIntoView()">Ver como funciona</button>
   </div>
 
   <div class="hero-mockup-wrap">
@@ -414,9 +422,9 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
       <h2>Cada caso vira conhecimento permanente.</h2>
       <p class="showcase-sub">Um chatbot esquece. O MedSaga registra sua evolução — caso a caso, erro a erro — até virar a história de como você se tornou o profissional que é.</p>
     </div>
-    <div class="screens-grid" style="align-items:center">
+    <div class="screens-grid diary-grid-mobile" style="align-items:center">
 
-      <div>
+      <div class="diary-text-col">
         <div class="step diary-toggle active" data-tab="historico" onclick="setDiaryTab('historico')" style="margin-bottom:16px;cursor:pointer;transition:box-shadow .2s,border-color .2s">
           <div class="step-icon">📋</div>
           <div class="step-content">
@@ -448,7 +456,8 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
       </div>
 
       <!-- Tela do diário -->
-      <div class="screen-card">
+      <div class="diary-mockup-col">
+        <div class="screen-card">
         <div class="screen-card-header">
           <span class="screen-tag">Meu Diário</span>
           <span class="mockup-saga-badge" style="background:rgba(217,119,6,0.08);color:#D97706">24 casos</span>
@@ -550,11 +559,10 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
 
           </div>
         </div>
+        </div>
       </div>
 
     </div>
-  </div>
-</section>
   </div>
 </section>
 
@@ -722,11 +730,23 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
     <div class="faq-section">
       <div class="faq-item open" onclick="toggleFaq(this)">
         <div class="faq-q">Posso cancelar quando quiser?<span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Sim. Não há fidelidade. Você pode cancelar a assinatura a qualquer momento diretamente na plataforma.</div>
+        <div class="faq-a">Sim. Não há fidelidade. Você pode cancelar a assinatura a qualquer momento diretamente na plataforma, sem precisar entrar em contato com ninguém.</div>
       </div>
-      <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-item open" onclick="toggleFaq(this)">
+        <div class="faq-q">O MedSaga serve para quem está nos primeiros anos do curso?<span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Sim. O nível Ciclo Básico foi desenhado especificamente para os primeiros anos — o foco não é diagnosticar ou tratar, mas aplicar anatomia, fisiologia e fisiopatologia em contexto clínico real. É diferente dos outros níveis.</div>
+      </div>
+      <div class="faq-item open" onclick="toggleFaq(this)">
+        <div class="faq-q">Os casos são sempre aleatórios ou posso escolher o tema?<span class="faq-arrow">▾</span></div>
+        <div class="faq-a">As duas opções. Você pode deixar a IA surpreender com um caso aleatório, ou digitar um tema específico no campo de configuração — "insuficiência cardíaca", "dengue grave", "cetoacidose diabética" — e o MedSaga gera um caso clínico sobre aquele assunto dentro do nível e especialidade que você escolheu.</div>
+      </div>
+      <div class="faq-item open" onclick="toggleFaq(this)">
+        <div class="faq-q">O conteúdo tem embasamento acadêmico real?<span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Sim. O feedback após cada decisão é baseado em diretrizes de sociedades médicas reconhecidas (SBC, AHA, ESC, IDSA e outras) e publicações consolidadas como Harrison's e UpToDate. As referências são exibidas ao final de cada análise.</div>
+      </div>
+      <div class="faq-item open" onclick="toggleFaq(this)">
         <div class="faq-q">O conteúdo é atualizado com frequência?<span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Sim. Novas Sagas e melhorias na plataforma são lançadas periodicamente.</div>
+        <div class="faq-a">Sim. Como os casos são gerados por IA em tempo real, não há um banco fixo de questões que "esgota". Novas Sagas e melhorias na plataforma também são lançadas periodicamente.</div>
       </div>
     </div>
   </div>
@@ -813,11 +833,9 @@ function setDiaryTab(tab) {
   });
 }
 
-// FAQ em acordeão
+// FAQ em acordeão — toggle individual
 function toggleFaq(item) {
-  const wasOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
-  if (!wasOpen) item.classList.add('open');
+  item.classList.toggle('open');
 }
 </script>
 
