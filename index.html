@@ -12,7 +12,6 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
 
 .nav { background: rgba(255,255,255,0.9); backdrop-filter: blur(8px); border-bottom: 1px solid #E3EAF3; padding: 16px 48px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
 .nav-logo { font-size: 23px; font-weight: 800; color: #0F2A44; letter-spacing: -0.5px; }
-.nav-logo span { color: #16A34A; }
 .nav-links { display: flex; align-items: center; gap: 32px; }
 .nav-link { font-size: 14px; color: #64748B; text-decoration: none; font-weight: 600; cursor: pointer; }
 .nav-cta { background: #2563EB; color: #fff; border: none; border-radius: 10px; padding: 10px 22px; font-size: 14px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 14px rgba(37,99,235,0.3); }
@@ -34,7 +33,6 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
 .mockup-body { padding: 20px 24px 0; }
 .mockup-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
 .mockup-logo { font-size: 15px; font-weight: 800; color: #0F2A44; }
-.mockup-logo span { color: #16A34A; }
 .mockup-user { display: flex; align-items: center; gap: 6px; background: #fff; border: 1px solid #E3EAF3; border-radius: 20px; padding: 4px 10px 4px 4px; font-size: 11px; }
 .mockup-av { width: 20px; height: 20px; border-radius: 50%; background: rgba(22,163,74,0.15); color: #16A34A; font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
 .mockup-hero { background: #0F2A44; border-radius: 14px; padding: 18px 20px; margin-bottom: 14px; }
@@ -182,9 +180,12 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
 .comp-x { color: #DC2626; font-weight: 800; font-size: 16px; }
 
 .faq-section { max-width: 620px; margin: 56px auto 0; text-align: left; }
-.faq-item { border-bottom: 1px solid #E3EAF3; padding: 20px 0; }
-.faq-q { font-size: 15.5px; font-weight: 700; color: #0F2A44; margin-bottom: 8px; }
-.faq-a { font-size: 14.5px; color: #64748B; line-height: 1.75; }
+.faq-item { border-bottom: 1px solid #E3EAF3; padding: 20px 0; cursor: pointer; }
+.faq-q { font-size: 15.5px; font-weight: 700; color: #0F2A44; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.faq-arrow { font-size: 13px; color: #94A3B8; transition: transform .2s; flex-shrink: 0; }
+.faq-item.open .faq-arrow { transform: rotate(180deg); color: #2563EB; }
+.faq-a { font-size: 14.5px; color: #64748B; line-height: 1.75; display: none; }
+.faq-item.open .faq-a { display: block; margin-top: 4px; }
 
 .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(11,24,48,0.75); backdrop-filter: blur(4px); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
 .modal-overlay.open { display: flex; }
@@ -204,9 +205,7 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
 .footer { background: #0B1830; padding: 56px 40px 36px; }
 .footer-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; max-width: 980px; margin: 0 auto 40px; }
 .footer-brand { max-width: 280px; }
-.footer-logo { font-size: 21px; font-weight: 800; color: #fff; margin-bottom: 12px; }
-.footer-logo span { color: #16A34A; }
-.footer-desc { font-size: 13.5px; color: rgba(255,255,255,0.4); line-height: 1.7; }
+.footer-desc { font-size: 13.5px; color: rgba(255,255,255,0.4); line-height: 1.7; margin-top: 12px; }
 .footer-col h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.35); margin-bottom: 14px; }
 .footer-col a { display: block; font-size: 13.5px; color: rgba(255,255,255,0.65); text-decoration: none; margin-bottom: 10px; cursor: pointer; }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; text-align: center; font-size: 12.5px; color: rgba(255,255,255,0.3); max-width: 980px; margin: 0 auto; }
@@ -217,13 +216,6 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
 .diary-toggle.active .step-icon { background: linear-gradient(135deg, #2563EB, #3B82F6); }
 .diary-toggle-hint { font-size: 11px; font-weight: 600; color: #2563EB; opacity: 0; margin-left: 8px; transition: opacity .2s; }
 .diary-toggle.active .diary-toggle-hint { opacity: 1; }
-
-.faq-item { cursor: pointer; }
-.faq-q { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-.faq-arrow { font-size: 13px; color: #94A3B8; transition: transform .2s; flex-shrink: 0; }
-.faq-item.open .faq-arrow { transform: rotate(180deg); color: #2563EB; }
-.faq-a { display: none; }
-.faq-item.open .faq-a { display: block; margin-top: 4px; }
 
 @media (max-width: 900px) {
   .screens-grid, .niveis-grid { grid-template-columns: 1fr; }
@@ -268,7 +260,6 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
     <button class="btn-secondary" onclick="document.getElementById('como-funciona').scrollIntoView()">Ver como funciona</button>
   </div>
   <div style="margin-top:20px;margin-bottom:32px;font-size:15px;color:rgba(255,255,255,0.65)">✦ 7 dias grátis para experimentar · Cancele quando quiser</div>
-
   <div class="hero-mockup-wrap">
     <div class="hero-mockup">
       <div class="mockup-topbar">
@@ -350,51 +341,11 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
       <p>Não é um quiz. É atendimento com decisão e consequência reais.</p>
     </div>
     <div class="steps">
-      <div class="step">
-        <div class="step-num-bg">1</div>
-        <div class="step-icon">🩺</div>
-        <div class="step-content">
-          <h3>Conheça o paciente</h3>
-          <p>Queixa, histórico e contexto chegam pelo narrador. Cada detalhe pode importar mais tarde.</p>
-          <span class="step-note">Um paciente novo a cada sessão</span>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num-bg">2</div>
-        <div class="step-icon">🔍</div>
-        <div class="step-content">
-          <h3>Escolha sua conduta</h3>
-          <p>A cada turno, alternativas reais de conduta. Sua escolha muda o rumo do caso.</p>
-          <span class="step-note">Decisões erradas têm peso real</span>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num-bg">3</div>
-        <div class="step-icon">💡</div>
-        <div class="step-content">
-          <h3>Formule sua hipótese</h3>
-          <p>O que importa é o raciocínio por trás da escolha — não só acertar o nome da doença.</p>
-          <span class="step-note">Raciocínio conta tanto quanto a resposta</span>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num-bg">4</div>
-        <div class="step-icon">💊</div>
-        <div class="step-content">
-          <h3>Decida o tratamento</h3>
-          <p>Trate, interne ou encaminhe. O paciente responde dentro da narrativa.</p>
-          <span class="step-note">Condutas erradas geram complicações</span>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num-bg">5</div>
-        <div class="step-icon">📖</div>
-        <div class="step-content">
-          <h3>Aprenda com o caso</h3>
-          <p>Análise clínica detalhada após cada decisão, com base em diretrizes reais.</p>
-          <span class="step-note">Feedback com referências reais</span>
-        </div>
-      </div>
+      <div class="step"><div class="step-num-bg">1</div><div class="step-icon">🩺</div><div class="step-content"><h3>Conheça o paciente</h3><p>Queixa, histórico e contexto chegam pelo narrador. Cada detalhe pode importar mais tarde.</p><span class="step-note">Um paciente novo a cada sessão</span></div></div>
+      <div class="step"><div class="step-num-bg">2</div><div class="step-icon">🔍</div><div class="step-content"><h3>Escolha sua conduta</h3><p>A cada turno, alternativas reais de conduta. Sua escolha muda o rumo do caso.</p><span class="step-note">Decisões erradas têm peso real</span></div></div>
+      <div class="step"><div class="step-num-bg">3</div><div class="step-icon">💡</div><div class="step-content"><h3>Formule sua hipótese</h3><p>O que importa é o raciocínio por trás da escolha — não só acertar o nome da doença.</p><span class="step-note">Raciocínio conta tanto quanto a resposta</span></div></div>
+      <div class="step"><div class="step-num-bg">4</div><div class="step-icon">💊</div><div class="step-content"><h3>Decida o tratamento</h3><p>Trate, interne ou encaminhe. O paciente responde dentro da narrativa.</p><span class="step-note">Condutas erradas geram complicações</span></div></div>
+      <div class="step"><div class="step-num-bg">5</div><div class="step-icon">📖</div><div class="step-content"><h3>Aprenda com o caso</h3><p>Análise clínica detalhada após cada decisão, com base em diretrizes reais.</p><span class="step-note">Feedback com referências reais</span></div></div>
     </div>
   </div>
 </section>
@@ -408,47 +359,16 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
     </div>
     <div class="screens-grid diary-grid-mobile" style="align-items:center">
       <div class="diary-text-col">
-        <div class="step diary-toggle active" data-tab="historico" onclick="setDiaryTab('historico')" style="margin-bottom:16px;cursor:pointer;transition:box-shadow .2s,border-color .2s">
-          <div class="step-icon">📋</div>
-          <div class="step-content">
-            <h3>Histórico <span class="diary-toggle-hint">◀ veja ao lado</span></h3>
-            <p>Nenhum caso se perde. Toda decisão que você tomou fica registrada — o que acertou, o que errou, e por quê.</p>
-          </div>
-        </div>
-        <div class="step diary-toggle" data-tab="conhecimentos" onclick="setDiaryTab('conhecimentos')" style="margin-bottom:16px;cursor:pointer;transition:box-shadow .2s,border-color .2s">
-          <div class="step-icon">📚</div>
-          <div class="step-content">
-            <h3>Conhecimentos <span class="diary-toggle-hint">◀ veja ao lado</span></h3>
-            <p>Cada acerto vira referência guardada. Um resumo pessoal de tudo que você já estudou na prática.</p>
-          </div>
-        </div>
-        <div class="step diary-toggle" data-tab="consolidar" onclick="setDiaryTab('consolidar')" style="margin-bottom:16px;cursor:pointer;transition:box-shadow .2s,border-color .2s">
-          <div class="step-icon">🔄</div>
-          <div class="step-content">
-            <h3>Consolidar <span class="diary-toggle-hint">◀ veja ao lado</span></h3>
-            <p>Os pontos que você errou viram exatamente o que você mais precisa estudar. A plataforma te mostra onde focar.</p>
-          </div>
-        </div>
-        <div class="step diary-toggle" data-tab="jornada" onclick="setDiaryTab('jornada')" style="cursor:pointer;transition:box-shadow .2s,border-color .2s">
-          <div class="step-icon">📖</div>
-          <div class="step-content">
-            <h3>Jornada <span class="diary-toggle-hint">◀ veja ao lado</span></h3>
-            <p>Sua trajetória vira narrativa própria — um registro de como você evoluiu, caso após caso.</p>
-          </div>
-        </div>
+        <div class="step diary-toggle active" data-tab="historico" onclick="setDiaryTab('historico')" style="margin-bottom:16px;cursor:pointer;transition:box-shadow .2s,border-color .2s"><div class="step-icon">📋</div><div class="step-content"><h3>Histórico <span class="diary-toggle-hint">◀ veja ao lado</span></h3><p>Nenhum caso se perde. Toda decisão que você tomou fica registrada — o que acertou, o que errou, e por quê.</p></div></div>
+        <div class="step diary-toggle" data-tab="conhecimentos" onclick="setDiaryTab('conhecimentos')" style="margin-bottom:16px;cursor:pointer;transition:box-shadow .2s,border-color .2s"><div class="step-icon">📚</div><div class="step-content"><h3>Conhecimentos <span class="diary-toggle-hint">◀ veja ao lado</span></h3><p>Cada acerto vira referência guardada. Um resumo pessoal de tudo que você já estudou na prática.</p></div></div>
+        <div class="step diary-toggle" data-tab="consolidar" onclick="setDiaryTab('consolidar')" style="margin-bottom:16px;cursor:pointer;transition:box-shadow .2s,border-color .2s"><div class="step-icon">🔄</div><div class="step-content"><h3>Consolidar <span class="diary-toggle-hint">◀ veja ao lado</span></h3><p>Os pontos que você errou viram exatamente o que você mais precisa estudar. A plataforma te mostra onde focar.</p></div></div>
+        <div class="step diary-toggle" data-tab="jornada" onclick="setDiaryTab('jornada')" style="cursor:pointer;transition:box-shadow .2s,border-color .2s"><div class="step-icon">📖</div><div class="step-content"><h3>Jornada <span class="diary-toggle-hint">◀ veja ao lado</span></h3><p>Sua trajetória vira narrativa própria — um registro de como você evoluiu, caso após caso.</p></div></div>
       </div>
-
       <div class="diary-mockup-col">
         <div class="screen-card">
-          <div class="screen-card-header">
-            <span class="screen-tag">Meu Diário</span>
-            <span class="mockup-saga-badge" style="background:rgba(217,119,6,0.08);color:#D97706">24 casos</span>
-          </div>
+          <div class="screen-card-header"><span class="screen-tag">Meu Diário</span><span class="mockup-saga-badge" style="background:rgba(217,119,6,0.08);color:#D97706">24 casos</span></div>
           <div class="diary-mock">
-            <div class="diary-mock-header">
-              <h4>Meu Diário</h4>
-              <p>Seu compêndio clínico pessoal, construído caso a caso.</p>
-            </div>
+            <div class="diary-mock-header"><h4>Meu Diário</h4><p>Seu compêndio clínico pessoal, construído caso a caso.</p></div>
             <div class="diary-mock-tabs">
               <span class="diary-mock-tab active" data-tab="historico" onclick="setDiaryTab('historico')" style="cursor:pointer">📋 Histórico</span>
               <span class="diary-mock-tab" data-tab="conhecimentos" onclick="setDiaryTab('conhecimentos')" style="cursor:pointer">📚 Conhecimentos</span>
@@ -457,78 +377,19 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
             </div>
             <div class="diary-mock-body" id="diaryMockBody">
               <div class="diary-mock-panel" data-panel="historico">
-                <div class="diary-mock-card">
-                  <div class="diary-mock-stripe" style="background:#DC2626"></div>
-                  <div class="diary-mock-card-body">
-                    <div class="diary-mock-badges">
-                      <span class="diary-mock-badge" style="background:rgba(220,38,38,0.1);color:#DC2626">NEGATIVO</span>
-                      <span class="diary-mock-badge" style="background:rgba(37,99,235,0.1);color:#2563EB">🌊 Saga</span>
-                    </div>
-                    <div class="diary-mock-title">Choque Hemorrágico Classe IV secundário a Gravidez Ectópica Rota</div>
-                    <div class="diary-mock-meta">Emergência · 11 de julho</div>
-                  </div>
-                </div>
-                <div class="diary-mock-card">
-                  <div class="diary-mock-stripe" style="background:#16A34A"></div>
-                  <div class="diary-mock-card-body">
-                    <div class="diary-mock-badges">
-                      <span class="diary-mock-badge" style="background:rgba(22,163,74,0.1);color:#16A34A">POSITIVO</span>
-                    </div>
-                    <div class="diary-mock-title">Anemia Perniciosa (Deficiência de B12 por Gastrite Atrófica)</div>
-                    <div class="diary-mock-meta">Hematologia · 10 de julho</div>
-                  </div>
-                </div>
+                <div class="diary-mock-card"><div class="diary-mock-stripe" style="background:#DC2626"></div><div class="diary-mock-card-body"><div class="diary-mock-badges"><span class="diary-mock-badge" style="background:rgba(220,38,38,0.1);color:#DC2626">NEGATIVO</span><span class="diary-mock-badge" style="background:rgba(37,99,235,0.1);color:#2563EB">🌊 Saga</span></div><div class="diary-mock-title">Choque Hemorrágico Classe IV secundário a Gravidez Ectópica Rota</div><div class="diary-mock-meta">Emergência · 11 de julho</div></div></div>
+                <div class="diary-mock-card"><div class="diary-mock-stripe" style="background:#16A34A"></div><div class="diary-mock-card-body"><div class="diary-mock-badges"><span class="diary-mock-badge" style="background:rgba(22,163,74,0.1);color:#16A34A">POSITIVO</span></div><div class="diary-mock-title">Anemia Perniciosa (Deficiência de B12 por Gastrite Atrófica)</div><div class="diary-mock-meta">Hematologia · 10 de julho</div></div></div>
               </div>
               <div class="diary-mock-panel" data-panel="conhecimentos" style="display:none">
-                <div class="diary-mock-card">
-                  <div class="diary-mock-card-body">
-                    <div class="diary-mock-badges">
-                      <span class="diary-mock-badge" style="background:rgba(37,99,235,0.1);color:#2563EB">CARDIOLOGIA</span>
-                    </div>
-                    <div class="diary-mock-title">Interpretação de ECG em IAMCSST</div>
-                    <div class="diary-mock-meta">📚 Harrison's, 21ª ed. 2022</div>
-                  </div>
-                </div>
-                <div class="diary-mock-card">
-                  <div class="diary-mock-card-body">
-                    <div class="diary-mock-badges">
-                      <span class="diary-mock-badge" style="background:rgba(37,99,235,0.1);color:#2563EB">GERIATRIA</span>
-                    </div>
-                    <div class="diary-mock-title">Delirium — Diagnóstico e Etiologia</div>
-                    <div class="diary-mock-meta">📚 UpToDate 2023</div>
-                  </div>
-                </div>
+                <div class="diary-mock-card"><div class="diary-mock-card-body"><div class="diary-mock-badges"><span class="diary-mock-badge" style="background:rgba(37,99,235,0.1);color:#2563EB">CARDIOLOGIA</span></div><div class="diary-mock-title">Interpretação de ECG em IAMCSST</div><div class="diary-mock-meta">📚 Harrison's, 21ª ed. 2022</div></div></div>
+                <div class="diary-mock-card"><div class="diary-mock-card-body"><div class="diary-mock-badges"><span class="diary-mock-badge" style="background:rgba(37,99,235,0.1);color:#2563EB">GERIATRIA</span></div><div class="diary-mock-title">Delirium — Diagnóstico e Etiologia</div><div class="diary-mock-meta">📚 UpToDate 2023</div></div></div>
               </div>
               <div class="diary-mock-panel" data-panel="consolidar" style="display:none">
-                <div class="diary-mock-card">
-                  <div class="diary-mock-card-body">
-                    <div class="diary-mock-badges">
-                      <span class="diary-mock-badge" style="background:rgba(217,119,6,0.1);color:#D97706">REVISAR</span>
-                    </div>
-                    <div class="diary-mock-title">Tríade de Hakim-Adams em Hidrocefalia de Pressão Normal</div>
-                    <div class="diary-mock-meta">📚 Harrison's, 21ª ed. 2022</div>
-                  </div>
-                </div>
-                <div class="diary-mock-card">
-                  <div class="diary-mock-card-body">
-                    <div class="diary-mock-badges">
-                      <span class="diary-mock-badge" style="background:rgba(217,119,6,0.1);color:#D97706">REVISAR</span>
-                    </div>
-                    <div class="diary-mock-title">Farmacologia clínica da Colchicina em Gota Aguda</div>
-                    <div class="diary-mock-meta">📚 NICE Guideline NG219, 2022</div>
-                  </div>
-                </div>
+                <div class="diary-mock-card"><div class="diary-mock-card-body"><div class="diary-mock-badges"><span class="diary-mock-badge" style="background:rgba(217,119,6,0.1);color:#D97706">REVISAR</span></div><div class="diary-mock-title">Tríade de Hakim-Adams em Hidrocefalia de Pressão Normal</div><div class="diary-mock-meta">📚 Harrison's, 21ª ed. 2022</div></div></div>
+                <div class="diary-mock-card"><div class="diary-mock-card-body"><div class="diary-mock-badges"><span class="diary-mock-badge" style="background:rgba(217,119,6,0.1);color:#D97706">REVISAR</span></div><div class="diary-mock-title">Farmacologia clínica da Colchicina em Gota Aguda</div><div class="diary-mock-meta">📚 NICE Guideline NG219, 2022</div></div></div>
               </div>
               <div class="diary-mock-panel" data-panel="jornada" style="display:none">
-                <div class="diary-mock-card">
-                  <div class="diary-mock-card-body">
-                    <div class="diary-mock-badges">
-                      <span class="diary-mock-badge" style="background:rgba(15,42,68,0.08);color:#0F2A44">CAPÍTULO 7</span>
-                    </div>
-                    <div class="diary-mock-title">O peso das decisões</div>
-                    <div class="diary-mock-meta" style="font-style:italic">"Hoje o Dr. Marcondes me observou de perto. Cada caso ensina algo diferente sobre quem quero ser como médico."</div>
-                  </div>
-                </div>
+                <div class="diary-mock-card"><div class="diary-mock-card-body"><div class="diary-mock-badges"><span class="diary-mock-badge" style="background:rgba(15,42,68,0.08);color:#0F2A44">CAPÍTULO 7</span></div><div class="diary-mock-title">O peso das decisões</div><div class="diary-mock-meta" style="font-style:italic">"Hoje o Dr. Marcondes me observou de perto. Cada caso ensina algo diferente sobre quem quero ser como médico."</div></div></div>
               </div>
             </div>
           </div>
@@ -544,11 +405,7 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
     <h2>Estude o que você quiser.</h2>
     <p class="sub" style="margin-bottom:32px">Tem prova semana que vem? Escolha o tema — o MedSaga gera o caso.</p>
     <div class="hero-mockup" style="text-align:left;box-shadow:0 20px 50px rgba(15,42,68,0.1);border:1px solid #E3EAF3">
-      <div class="mockup-topbar">
-        <div class="mockup-dot" style="background:#FF5F57"></div>
-        <div class="mockup-dot" style="background:#FEBC2E"></div>
-        <div class="mockup-dot" style="background:#28C840"></div>
-      </div>
+      <div class="mockup-topbar"><div class="mockup-dot" style="background:#FF5F57"></div><div class="mockup-dot" style="background:#FEBC2E"></div><div class="mockup-dot" style="background:#28C840"></div></div>
       <div class="mockup-body" style="padding-bottom:20px">
         <div class="nivel-tag" style="color:#2563EB;margin-bottom:10px">Tema específico (opcional)</div>
         <div style="background:#fff;border:1.5px solid #2563EB;border-radius:10px;padding:12px 16px;font-size:14px;color:#0F2A44;margin-bottom:14px">Insuficiência renal aguda</div>
@@ -569,39 +426,9 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
     <h2>Três níveis de dificuldade</h2>
     <p class="sub">Escolha o nível que combina com o seu momento na faculdade. Você decide — a dificuldade não muda sozinha.</p>
     <div class="niveis-grid">
-      <div class="nivel-card n1">
-        <div class="nivel-icon">🌱</div>
-        <div class="nivel-tag">Iniciante</div>
-        <h3>Ciclo Básico</h3>
-        <p>O foco não é diagnosticar ou tratar, mas aplicar conhecimentos de anatomia, fisiologia e fisiopatologia.</p>
-        <ul class="nivel-list">
-          <li>Casos com apresentações diretas</li>
-          <li>Foco em mecanismos e fisiopatologia</li>
-          <li>Feedback didático e detalhado</li>
-        </ul>
-      </div>
-      <div class="nivel-card n2">
-        <div class="nivel-icon">⚡</div>
-        <div class="nivel-tag">Intermediário</div>
-        <h3>Ciclo Clínico</h3>
-        <p>Alternativas mais próximas entre si, exigindo raciocínio clínico real para diferenciar diagnósticos e condutas.</p>
-        <ul class="nivel-list">
-          <li>Alternativas plausíveis e próximas</li>
-          <li>Diagnósticos diferenciais complexos</li>
-          <li>Decisões com trade-offs reais</li>
-        </ul>
-      </div>
-      <div class="nivel-card n3">
-        <div class="nivel-icon">🔥</div>
-        <div class="nivel-tag">Avançado</div>
-        <h3>Internato</h3>
-        <p>Casos de alta complexidade, com alternativas tecnicamente defensáveis. Exige priorização clínica real.</p>
-        <ul class="nivel-list">
-          <li>Casos de alta complexidade</li>
-          <li>Consequências mais graves</li>
-          <li>Sem respostas óbvias</li>
-        </ul>
-      </div>
+      <div class="nivel-card n1"><div class="nivel-icon">🌱</div><div class="nivel-tag">Iniciante</div><h3>Ciclo Básico</h3><p>O foco não é diagnosticar ou tratar, mas aplicar conhecimentos de anatomia, fisiologia e fisiopatologia.</p><ul class="nivel-list"><li>Casos com apresentações diretas</li><li>Foco em mecanismos e fisiopatologia</li><li>Feedback didático e detalhado</li></ul></div>
+      <div class="nivel-card n2"><div class="nivel-icon">⚡</div><div class="nivel-tag">Intermediário</div><h3>Ciclo Clínico</h3><p>Alternativas mais próximas entre si, exigindo raciocínio clínico real para diferenciar diagnósticos e condutas.</p><ul class="nivel-list"><li>Alternativas plausíveis e próximas</li><li>Diagnósticos diferenciais complexos</li><li>Decisões com trade-offs reais</li></ul></div>
+      <div class="nivel-card n3"><div class="nivel-icon">🔥</div><div class="nivel-tag">Avançado</div><h3>Internato</h3><p>Casos de alta complexidade, com alternativas tecnicamente defensáveis. Exige priorização clínica real.</p><ul class="nivel-list"><li>Casos de alta complexidade</li><li>Consequências mais graves</li><li>Sem respostas óbvias</li></ul></div>
     </div>
   </div>
 </section>
@@ -620,26 +447,10 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
     <h2>Tecnologia a serviço do aprendizado</h2>
     <p class="sub">A IA gera casos únicos e calibrados — mas o foco é sempre o seu raciocínio, nunca a tecnologia em si.</p>
     <div class="tech-grid">
-      <div class="tech-card">
-        <div class="tech-icon">🎲</div>
-        <h3>Infinita variedade</h3>
-        <p>Nunca o mesmo paciente duas vezes.</p>
-      </div>
-      <div class="tech-card">
-        <div class="tech-icon">📈</div>
-        <h3>Calibrado para você</h3>
-        <p>Complexidade ajustada ao seu nível.</p>
-      </div>
-      <div class="tech-card">
-        <div class="tech-icon">📚</div>
-        <h3>Baseado em evidências</h3>
-        <p>Diretrizes clínicas e literatura atual.</p>
-      </div>
-      <div class="tech-card">
-        <div class="tech-icon">🧠</div>
-        <h3>Feedback inteligente</h3>
-        <p>Analisa raciocínio, não só resposta.</p>
-      </div>
+      <div class="tech-card"><div class="tech-icon">🎲</div><h3>Infinita variedade</h3><p>Nunca o mesmo paciente duas vezes.</p></div>
+      <div class="tech-card"><div class="tech-icon">📈</div><h3>Calibrado para você</h3><p>Complexidade ajustada ao seu nível.</p></div>
+      <div class="tech-card"><div class="tech-icon">📚</div><h3>Baseado em evidências</h3><p>Diretrizes clínicas e literatura atual.</p></div>
+      <div class="tech-card"><div class="tech-icon">🧠</div><h3>Feedback inteligente</h3><p>Analisa raciocínio, não só resposta.</p></div>
     </div>
   </div>
 </section>
@@ -662,30 +473,54 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
 </section>
 
 <section class="preco-section" id="planos">
-  <div class="preco-inner">
-    <div class="section-eyebrow">Plano único</div>
+  <div class="preco-inner" style="max-width:900px">
+    <div class="section-eyebrow">Planos</div>
     <h2>Simples. Sem surpresas.</h2>
     <p class="sub">Acesso completo a tudo que o MedSaga oferece.</p>
-    <div class="preco-card">
-      <div class="preco-badge">⚡ Preço de lançamento</div>
-      <div class="preco-valor-wrap">
-        <span class="preco-riscado">R$29,90</span>
-        <div class="preco-valor"><span>R$</span>19<span>,90</span></div>
-      </div>
-      <div class="preco-period">por mês · cancele quando quiser</div>
-      <div class="preco-items">
+
+    <!-- Funcionalidades incluídas em todos os planos -->
+    <div style="background:#F7F9FC;border:1px solid #E3EAF3;border-radius:16px;padding:28px 32px;margin-top:36px;text-align:left">
+      <p style="font-size:12px;text-transform:uppercase;letter-spacing:2px;color:#2563EB;font-weight:700;margin-bottom:16px">Incluído em todos os planos</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
         <div class="preco-item"><span class="preco-check">✓</span> Casos clínicos ilimitados com IA</div>
-        <div class="preco-item"><span class="preco-check">✓</span> Todos os níveis: Básico, Clínico e Internato</div>
-        <div class="preco-item"><span class="preco-check">✓</span> Acesso à Saga ativa e a todas as próximas</div>
         <div class="preco-item"><span class="preco-check">✓</span> Feedback clínico detalhado com referências</div>
+        <div class="preco-item"><span class="preco-check">✓</span> Todos os níveis: Básico, Clínico e Internato</div>
         <div class="preco-item"><span class="preco-check">✓</span> Diário de evolução pessoal</div>
+        <div class="preco-item"><span class="preco-check">✓</span> Acesso à Saga ativa e a todas as próximas</div>
         <div class="preco-item"><span class="preco-check">✓</span> Compartilhamento de casos com colegas</div>
       </div>
-      <button class="preco-btn" onclick="window.open('https://mpago.la/1KgxzPR','_blank')">Acessar o MedSaga</button>
-      <div class="preco-note">7 dias grátis · R$19,90/mês após o período · Cancele quando quiser.</div>
     </div>
 
-    <table class="comp-table">
+    <!-- Cards lado a lado -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px;align-items:start">
+
+      <!-- Card mensal -->
+      <div class="preco-card" style="margin-top:0">
+        <div class="preco-badge" style="background:linear-gradient(90deg,#64748B,#94A3B8)">Mensal</div>
+        <div class="preco-valor-wrap">
+          <div class="preco-valor"><span>R$</span>24<span>,90</span></div>
+        </div>
+        <div class="preco-period">por mês · cancele quando quiser</div>
+        <button class="preco-btn" style="background:linear-gradient(90deg,#64748B,#94A3B8);box-shadow:0 10px 30px rgba(100,116,139,0.3)" onclick="window.open('https://mpago.la/1KgxzPR','_blank')">Assinar mensal</button>
+        <div class="preco-note">7 dias grátis · R$24,90/mês após o período.</div>
+      </div>
+
+      <!-- Card anual — destaque -->
+      <div class="preco-card" style="margin-top:0;border-color:#16A34A;box-shadow:0 24px 60px rgba(22,163,74,0.2);position:relative">
+        <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,#16A34A,#22C55E);color:#fff;font-size:11px;font-weight:800;padding:5px 16px;border-radius:20px;white-space:nowrap">⚡ Melhor valor · 2 meses grátis</div>
+        <div class="preco-badge" style="background:linear-gradient(90deg,#16A34A,#22C55E);margin-top:12px">Anual</div>
+        <div class="preco-valor-wrap">
+          <span class="preco-riscado">R$24,90</span>
+          <div class="preco-valor"><span>R$</span>19<span>,90</span></div>
+        </div>
+        <div class="preco-period">por mês · R$238,80/ano em 12x · economize 20%</div>
+        <button class="preco-btn" style="background:linear-gradient(90deg,#16A34A,#22C55E);box-shadow:0 10px 30px rgba(22,163,74,0.35)" onclick="window.open('https://mpago.la/1KgxzPR','_blank')">Assinar anual</button>
+        <div class="preco-note">R$238,80 cobrado em 12x de R$19,90 · 7 dias grátis inclusos.</div>
+      </div>
+
+    </div>
+
+    <table class="comp-table" style="margin-top:48px">
       <tr><th></th><th>MedSaga</th><th>Banco de questões</th></tr>
       <tr><td>Nunca decora — sempre pensa</td><td class="comp-check">✓</td><td class="comp-x">✕</td></tr>
       <tr><td>Aprende a decidir, não só a marcar a certa</td><td class="comp-check">✓</td><td class="comp-x">✕</td></tr>
@@ -694,26 +529,11 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
     </table>
 
     <div class="faq-section">
-      <div class="faq-item open" onclick="toggleFaq(this)">
-        <div class="faq-q">Posso cancelar quando quiser?<span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Sim. Não há fidelidade. Você pode cancelar a assinatura a qualquer momento diretamente na plataforma, sem precisar entrar em contato com ninguém.</div>
-      </div>
-      <div class="faq-item open" onclick="toggleFaq(this)">
-        <div class="faq-q">O MedSaga serve para quem está nos primeiros anos do curso?<span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Sim. O nível Ciclo Básico foi desenhado especificamente para os primeiros anos — o foco não é diagnosticar ou tratar, mas aplicar anatomia, fisiologia e fisiopatologia em contexto clínico real. É diferente dos outros níveis.</div>
-      </div>
-      <div class="faq-item open" onclick="toggleFaq(this)">
-        <div class="faq-q">Os casos são sempre aleatórios ou posso escolher o tema?<span class="faq-arrow">▾</span></div>
-        <div class="faq-a">As duas opções. Você pode deixar a IA surpreender com um caso aleatório, ou digitar um tema específico no campo de configuração — "insuficiência cardíaca", "dengue grave", "cetoacidose diabética" — e o MedSaga gera um caso clínico sobre aquele assunto dentro do nível e especialidade que você escolheu.</div>
-      </div>
-      <div class="faq-item open" onclick="toggleFaq(this)">
-        <div class="faq-q">O conteúdo tem embasamento acadêmico real?<span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Sim. O feedback após cada decisão é baseado em diretrizes de sociedades médicas reconhecidas (SBC, AHA, ESC, IDSA e outras) e publicações consolidadas como Harrison's e UpToDate. As referências são exibidas ao final de cada análise.</div>
-      </div>
-      <div class="faq-item open" onclick="toggleFaq(this)">
-        <div class="faq-q">O conteúdo é atualizado com frequência?<span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Sim. Como os casos são gerados por IA em tempo real, não há um banco fixo de questões que "esgota". Novas Sagas e melhorias na plataforma também são lançadas periodicamente.</div>
-      </div>
+      <div class="faq-item open" onclick="toggleFaq(this)"><div class="faq-q">Posso cancelar quando quiser?<span class="faq-arrow">▾</span></div><div class="faq-a">Sim. Não há fidelidade. Você pode cancelar a assinatura a qualquer momento diretamente na plataforma, sem precisar entrar em contato com ninguém.</div></div>
+      <div class="faq-item open" onclick="toggleFaq(this)"><div class="faq-q">O MedSaga serve para quem está nos primeiros anos do curso?<span class="faq-arrow">▾</span></div><div class="faq-a">Sim. O nível Ciclo Básico foi desenhado especificamente para os primeiros anos — o foco não é diagnosticar ou tratar, mas aplicar anatomia, fisiologia e fisiopatologia em contexto clínico real. É diferente dos outros níveis.</div></div>
+      <div class="faq-item open" onclick="toggleFaq(this)"><div class="faq-q">Os casos são sempre aleatórios ou posso escolher o tema?<span class="faq-arrow">▾</span></div><div class="faq-a">As duas opções. Você pode deixar a IA surpreender com um caso aleatório, ou digitar um tema específico no campo de configuração — "insuficiência cardíaca", "dengue grave", "cetoacidose diabética" — e o MedSaga gera um caso clínico sobre aquele assunto.</div></div>
+      <div class="faq-item open" onclick="toggleFaq(this)"><div class="faq-q">O conteúdo tem embasamento acadêmico real?<span class="faq-arrow">▾</span></div><div class="faq-a">Sim. O feedback após cada decisão é baseado em diretrizes de sociedades médicas reconhecidas (SBC, AHA, ESC, IDSA e outras) e publicações consolidadas como Harrison's e UpToDate.</div></div>
+      <div class="faq-item open" onclick="toggleFaq(this)"><div class="faq-q">O conteúdo é atualizado com frequência?<span class="faq-arrow">▾</span></div><div class="faq-a">Sim. Como os casos são gerados por IA em tempo real, não há um banco fixo de questões que "esgota". Novas Sagas e melhorias na plataforma também são lançadas periodicamente.</div></div>
     </div>
   </div>
 </section>
@@ -721,9 +541,7 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
 <footer class="footer">
   <div class="footer-top">
     <div class="footer-brand">
-      <div class="footer-logo">
-        <img src="MedSaga_logo_fundo_claro_transparente.png" alt="MedSaga" style="height:32px;width:auto;filter:brightness(0) invert(1)">
-      </div>
+      <img src="MedSaga_logo_fundo_claro_transparente.png" alt="MedSaga" style="height:32px;width:auto;filter:brightness(0) invert(1)">
       <div class="footer-desc">Simulação clínica gamificada para estudantes de medicina. Aprenda tomando decisões reais.</div>
     </div>
     <div class="footer-col">
@@ -764,36 +582,27 @@ body { font-family: 'Segoe UI', Inter, sans-serif; background: #F7F9FC; color: #
 </div>
 
 <script>
-function openModal() {
-  document.getElementById('modalOverlay').classList.add('open');
-  document.getElementById('modalForm').style.display = 'block';
-  document.getElementById('modalSuccess').classList.remove('show');
-}
-function closeModal() {
-  document.getElementById('modalOverlay').classList.remove('open');
-}
-function submitEmail(e) {
-  e.preventDefault();
-  document.getElementById('modalForm').style.display = 'none';
-  document.getElementById('modalSuccess').classList.add('show');
-  setTimeout(closeModal, 2500);
-}
-document.getElementById('modalOverlay').addEventListener('click', function(e) {
-  if (e.target === this) closeModal();
-});
+function closeModal() { document.getElementById('modalOverlay').classList.remove('open'); }
+function submitEmail(e) { e.preventDefault(); document.getElementById('modalForm').style.display = 'none'; document.getElementById('modalSuccess').classList.add('show'); setTimeout(closeModal, 2500); }
+document.getElementById('modalOverlay').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+
 function setDiaryTab(tab) {
-  document.querySelectorAll('.diary-toggle').forEach(el => {
-    el.classList.toggle('active', el.dataset.tab === tab);
-  });
-  document.querySelectorAll('.diary-mock-tab').forEach(el => {
-    el.classList.toggle('active', el.dataset.tab === tab);
-  });
-  document.querySelectorAll('.diary-mock-panel').forEach(el => {
-    el.style.display = el.dataset.panel === tab ? 'block' : 'none';
-  });
+  document.querySelectorAll('.diary-toggle').forEach(el => el.classList.toggle('active', el.dataset.tab === tab));
+  document.querySelectorAll('.diary-mock-tab').forEach(el => el.classList.toggle('active', el.dataset.tab === tab));
+  document.querySelectorAll('.diary-mock-panel').forEach(el => { el.style.display = el.dataset.panel === tab ? 'block' : 'none'; });
 }
-function toggleFaq(item) {
-  item.classList.toggle('open');
+
+function toggleFaq(item) { item.classList.toggle('open'); }
+
+var planoAnual = false;
+function togglePlano() {
+  planoAnual = !planoAnual;
+  document.getElementById('card-mensal').style.display = planoAnual ? 'none' : 'block';
+  document.getElementById('card-anual').style.display = planoAnual ? 'block' : 'none';
+  document.getElementById('toggleCircle').style.left = planoAnual ? '27px' : '3px';
+  document.getElementById('label-mensal').style.color = planoAnual ? '#94A3B8' : '#0F2A44';
+  document.getElementById('label-anual').style.color = planoAnual ? '#0F2A44' : '#94A3B8';
+  document.getElementById('economia-txt').textContent = planoAnual ? 'Você economiza R$60,00 por ano' : '';
 }
 </script>
 
